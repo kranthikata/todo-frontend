@@ -19,11 +19,15 @@ const ProfileModal = ({ user, isOpen, onClose, onUpdate }) => {
     if (password) updatedData.password = password;
 
     try {
-      await axios.put("http://localhost:5000/api/user/profile", updatedData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.put(
+        "https://todo-backend-e1sp.onrender.com/api/user/profile",
+        updatedData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       onUpdate(updatedData); // Update the parent component
       onClose(); // Close the modal after update
     } catch (error) {

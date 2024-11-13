@@ -26,7 +26,7 @@ const Dashboard = ({ history }) => {
   const fetchTodos = async () => {
     try {
       const response = await axios.get(
-        "https://todoapp-smr2.onrender.com/api/todos/",
+        "https://todo-backend-e1sp.onrender.com/api/todos/",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -43,7 +43,7 @@ const Dashboard = ({ history }) => {
     try {
       const newTodo = { title, status };
       await axios.post(
-        "https://todoapp-smr2.onrender.com/api/todos/",
+        "https://todo-backend-e1sp.onrender.com/api/todos/",
         newTodo,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -60,9 +60,12 @@ const Dashboard = ({ history }) => {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`https://todoapp-smr2.onrender.com/api/todos/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://todo-backend-e1sp.onrender.com/api/todos/${id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       fetchTodos();
       toast.success("Todo deleted successfully!");
     } catch (error) {
@@ -73,7 +76,7 @@ const Dashboard = ({ history }) => {
   const updateTodo = async (id, updatedData) => {
     try {
       await axios.put(
-        `https://todoapp-smr2.onrender.com/api/todos/${id}`,
+        `https://todo-backend-e1sp.onrender.com/api/todos/${id}`,
         updatedData,
         {
           headers: { Authorization: `Bearer ${token}` },

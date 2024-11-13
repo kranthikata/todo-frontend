@@ -43,7 +43,7 @@ const RegistrationPage = ({ history }) => {
       setIsLoading(true);
       // API call to create user
       const response = await axios.post(
-        "https://todoapp-smr2.onrender.com/api/auth/signup",
+        "https://todo-backend-e1sp.onrender.com/api/auth/signup",
         userData
       );
       toast.success("Registration Successful!");
